@@ -3,31 +3,159 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-<p>
-    <a asp-action="Create" class="btn btn-sm btn-primary">Create New</a>
-</p>
-<br />
-<div>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(m =>m.Name)
-            </th>
-            <th></th>
-        </tr>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(m => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-            </td>
-        </tr>
-    }
-</table>
-</div>
+
+    <div ng-controller="Controlador">
+        <h2>Index</h2>
+        <p>
+            <a asp-action="Create" class="btn btn-sm btn-primary">Create New</a>
+        </p>
+        <p>
+            <div class="row">
+                <label class="col-sm-4">
+                    Nombre
+                </label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="name" name="name" />
+                </div>
+                <div class="col-sm-4">
+                    <a class="btn btn-sm btn-primary" ng-click="crearLibro()">Create New</a>
+                </div>
+            </div>
+        </p>
+        <br />
+        <div>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Name)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => item.Name)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div>
+            <table class="table">
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        
+                    </th>
+                </tr>
+                <tr ng-repeat="libro in libros">
+                    <td>{{ libro.id }}</td>
+                    <td><strong>{{libro.name}}</strong></td>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+            
+
+            <script type="text/javascript">
+            var app = angular.module('App', []);
+
+            //JSON.stringify
+                var model = @Html.Raw(Json.Serialize(@Model));
+                var librosjs = model;
+
+
+            app.controller("Controlador",["$scope","$http",function($scope,$http)
+            {
+                    $scope.libros = librosjs;
+                    
+                    $scope.crearLibro=function()
+                    {
+                        alert('Prueba');
+                        var name = document.getElementById('name').value;
+                        var libro = { id: 0, name: name };
+
+                        $.ajax({
+                            type: "POST",
+                            accepts: "application/json",
+                            url: "/Books/CreateJS",
+                            contentType: "application/json",
+                            data: JSON.stringify(libro),
+                            error: function(jqXHR, textStatus, errorThrown) {
+                              alert("Something went wrong!");
+                            },
+                            success: function(result) {
+                                alert(libro);
+                                $scope.libros.add(libro);
+                              //$("#add-name").val("");
+                            }
+                          });
+
+
+                        //var config = {
+                        //    headers : {
+                        //        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                        //    }
+                        //}
+
+                        //$http.post('/Books/CreateJS', libro, config)
+                        //    .success(function (data, status, headers, config) {
+                        //        //$scope.PostDataResponse = data;
+                        //        $scope.libros.add(libro);
+                        //    })
+                        //    .error(function (data, status, header, config) {
+                        //        $scope.ResponseDetails = "Data: " + data +
+                        //            "<hr />status: " + status +
+                        //            "<hr />headers: " + header +
+                        //            "<hr />config: " + config;
+                        //    });
+
+                        //$http({
+                        //   method: "POST",
+                        //    url: "/Books/CreateJS",
+                        //    data:{ 'book': libro },
+                        //    contentType: "application/json; charset=utf-8",
+                        //    dataType: "json"
+
+                        //}).then(function correcto(respuesta)
+                        //{
+                        //    //$scope.gatos = respuesta.data;
+                        //    $scope.libros.add(libro);
+                        //},
+                        //function error(respuesta)
+                        //{
+                        //    alert(respuesta.statusText);
+                        //});
+
+                        //$http({
+                        //   method: "GET",
+                        //   url: urlServicio
+                        //}).then(function correcto(respuesta)
+                        //{
+                        //    $scope.gatos=respuesta.data;
+                        //},
+                        //function error(respuesta)
+                        //{
+                        //    alert(respuesta.statusText);
+                        //});
+                    };
+            }]);
+            </script>
+
+
+
+        </div>
+

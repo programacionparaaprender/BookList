@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BookList.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,6 +31,7 @@ namespace BookList.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewData["Books"] = _db.Books.ToList();
             return View(_db.Books.ToList());
         }
         //Get: Book/Create
@@ -48,6 +50,19 @@ namespace BookList.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(book);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public String CreateJS(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Add(book);
+                _db.SaveChanges();
+            }
+            var lstString = JsonConvert.SerializeObject(book);
+            return lstString;
         }
 
         //Details : Book/Edit/5
