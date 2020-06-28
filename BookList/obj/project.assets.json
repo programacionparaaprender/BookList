@@ -12532,24 +12532,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LuisCorrea\\.nuget\\packages\\": {},
+    "C:\\Users\\Bus209\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LuisCorrea\\Documents\\proyectos_net\\proyectos_c#\\web\\BookList\\BookList\\BookList.csproj",
+      "projectUniqueName": "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj",
       "projectName": "BookList",
-      "projectPath": "C:\\Users\\LuisCorrea\\Documents\\proyectos_net\\proyectos_c#\\web\\BookList\\BookList\\BookList.csproj",
-      "packagesPath": "C:\\Users\\LuisCorrea\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LuisCorrea\\Documents\\proyectos_net\\proyectos_c#\\web\\BookList\\BookList\\obj\\",
+      "projectPath": "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj",
+      "packagesPath": "C:\\Users\\Bus209\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\LuisCorrea\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Bus209\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -12584,6 +12587,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12594,10 +12598,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
