@@ -1,36 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj": {}
+    "C:\\Users\\luis1\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj": {
+    "C:\\Users\\luis1\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj",
+        "projectUniqueName": "C:\\Users\\luis1\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj",
         "projectName": "BookList",
-        "projectPath": "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj",
-        "packagesPath": "C:\\Users\\Bus209\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bus209\\Documents\\htdocs\\BookList\\BookList\\obj\\",
+        "projectPath": "C:\\Users\\luis1\\Documents\\htdocs\\BookList\\BookList\\BookList.csproj",
+        "packagesPath": "C:\\Users\\luis1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis1\\Documents\\htdocs\\BookList\\BookList\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Bus209\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\luis1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
+            "targetAlias": "netcoreapp2.1",
             "projectReferences": {}
           }
         },
@@ -42,6 +44,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "dependencies": {
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
@@ -71,11 +74,12 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
